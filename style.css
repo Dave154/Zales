@@ -1,0 +1,374 @@
+/*GLOBAL STYLES*/
+
+:root{
+  --primary:#130e0c;
+  --secondary:#926A54;
+  --text1:#fff;
+  --text2:#8C8988;
+  --font-xsm:10px;
+  --font-sm:20px;
+  --font-md:25px;
+  --font-lg:40px;
+  --font-xlg:clamp(50px, 10vw, 100px);
+  --border-color:#fff;
+  --faded-border:#1D1D1D;
+  --border-radius:15px;
+}
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+p{
+	font-size: var(--font-xsm);
+}
+img{
+	width: 100%;
+}
+ul{
+	list-style: none;
+}
+.absolute{
+	position: absolute;
+}
+button{
+	outline: 0;
+	border:0;
+	cursor: pointer;
+	background: transparent;
+    border-radius: 20px;
+     border: 1px solid white;
+ color:white;
+ 		padding: 7px 20px;
+ font-size: var(--font-xsm);
+}
+body{
+ background: var(--primary);
+ color:white;
+}
+main{
+	margin:0 auto;
+	max-width: 60rem;
+}
+
+/*REUSABLE CLASSES*/
+.container{
+ margin:  10px;
+
+}
+.border_rad{
+	border-radius: 12px;
+}
+.title{
+	font-family: serif;
+}
+
+
+.white{
+	background: white !important;
+	color:var(--primary) ;
+}
+
+.flex{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.d_grid{
+	display: grid;
+}
+.btn_round{
+	   width: 30px;
+	padding: 0;
+	aspect-ratio: 1/1;
+border-radius: 50%;	
+}
+
+/*HEADER*/
+.header{
+	padding:10px;
+	border-radius: 20px;
+	background: rgba(0, 0, 0, .8);
+	overflow: hidden;
+}
+.nav{
+	font-size: var(--font-xsm);
+}
+.nav_left{
+
+}
+.nav_list{
+	margin-left: 40px;
+	gap: 20px;
+justify-self: flex-start;
+color:rgba(255, 255, 255, .3);
+}
+.list_items{
+	cursor:pointer;
+}
+.list_items.active{
+	color:white;
+}
+
+.nav_button button{
+ padding: 5px 20px;
+ font-size: var(--font-xsm);
+}
+.nav_button .search{
+	width: 20px;
+	padding: 0;
+	aspect-ratio: 1/1;
+border-radius: 50%;	
+}
+
+
+/*HERO*/
+.hero_container{
+	width: 100%;
+	height:370px ;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, .1);
+}
+.hero_container .bg{
+	object-fit: contain;
+	object-position: top;
+}
+.hero_content{
+	padding: 20px;
+	position: absolute;
+	inset: 0;
+	display: flex;
+	background: rgba(16, 12, 10, .7);
+	justify-content: center;
+	align-items: flex-end;}
+
+.hero_content >article{
+ width: 100%;
+ height:60%;
+ position: relative;
+ display: grid;
+}
+.sub_title{
+/*	font-size: var(--font-xsm);*/
+	width: 24rem;
+}
+.hero_title{
+    line-height: 2rem;
+    width: 28rem;
+	font-size: var(--font-lg);
+}
+.hero_buttons{
+	position: relative;
+	bottom: 0;
+	justify-content: space-between;
+}
+/*.hero_buttons button{
+		padding: 7px 20px;
+
+	}*/
+	.hero_buttons_right > button{
+	border-color: var(--faded-border);
+	}
+.hero_buttons_right > button.active{
+	width: 50px;
+	height: 30px;
+	border-color: var(--border-color);
+	border-radius: var(--border-radius);
+}
+.hero .subtitle{
+	max-width: 40px;
+} 
+.pagination{
+	flex-direction: column;
+	position: absolute;
+	right: 	20px;
+	top:-2rem;
+	font-size: var(--font-xsm);
+}
+.pag{
+	display: grid;
+	width: 2px;
+	height: 80px;
+	border-radius: 14px;
+	background: rgba(255, 255, 255, .2);
+}
+.pag span.active{
+background:white;
+}
+
+/*SECTION2*/
+
+.section2{
+
+}
+.section2 .top_boxes{
+ gap: 5px;
+}
+.section2 .top_boxes>div{
+	padding: 20px;
+	height: 120px;
+	overflow: hidden;
+ border-radius: var(--border-radius);
+}
+
+.section2 .bx1{
+	gap: 20px;
+	background:var(--faded-border) ;
+	flex-basis: 70%;
+}
+.section2 .bx1 .bx1_images div{
+	width: 80px;
+	height: 80px;
+}
+.section2 .bx1 .bx1_images div:nth-of-type(1){
+	border-radius:50% ;
+	place-content: center;
+	background: var(--secondary);
+}
+.section2 .bx1 .bx1_images div:nth-of-type(2){
+	overflow: hidden;
+	position: relative;
+	height: 80px;
+            width: 40px;
+            border-radius: 0 150px 150px 0 ;
+}
+.section2 .bx1 .bx1_images{
+	justify-content: center;
+	flex-basis: 20%;
+}
+.bx1_text{
+	flex-basis: 80%;
+}
+
+.section2 .bx2{
+	place-content: center;
+	flex-basis: 30%;
+	gap: 20px;
+	background: var(--secondary);
+}
+.section2 .bx2 h3{
+ font-size: var(--font-md);
+}
+.bx2_btm{
+}
+.bx2_images{
+	grid-template-columns: 1fr 1fr 1fr;	
+}
+.bx2_images span{
+	width: 20px;
+	height: 20px;
+	position: 	relative;
+	border-radius: 50%;
+	overflow: hidden;
+}
+/*.bx2_images span:nth-of-type(1){
+
+}
+.bx2_images span:nth-of-type(1){
+
+}
+.bx2_images span:nth-of-type(1){
+
+}*/
+.bx1_text p {
+max-width: 100px;
+margin-bottom: 20px;
+}
+.bx1_text h4 {
+	font-size: var(--font-sm);
+max-width: 250px;
+} 
+.section2_text{
+
+}
+.section2_text_case1 h2{
+ font-size: var(--font-xlg);
+}
+.section2_text_case1 article p{
+color: var(--text2);
+ max-width: 40%;
+ text-transform: uppercase;
+
+}
+.section2_text_case1 article button{
+}
+.section2_diamonds{
+	margin-block: 80px;
+	position: relative;
+	justify-content: center;
+
+}
+.section2_diamonds article{
+	gap: 30px;
+	justify-content: center;
+ position: absolute;
+
+}
+.section2_diamonds div{
+ width:80px;
+ height: 80px;
+ background: var(--primary);
+ border: 1px solid var(--faded-border);
+ border-radius: 50%;
+ padding: 10px;
+ position: relative;
+/* overflow: hidden;*/
+}
+
+.section2_diamonds div:after{
+	content: attr(data-shape);
+	position: absolute;
+	bottom: -40px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--text2);
+
+}
+.section2_diamonds span{
+	width:100%;
+	max-width: 40rem;
+	height: 1px;
+	position: relative;
+	background: var(--border-color);
+}
+.section2_diamonds div.active{
+	box-shadow: -1px 1px 5px #fff;
+	transform: scale(1.2);
+}
+.section2_diamonds div.active:after{
+	color: var(--text1);
+}
+.section2_diamonds span:before,
+.section2_diamonds span:after{
+content: '';
+width: 5px;
+height: 5px;
+position: absolute;
+border-radius: 50%;
+background: inherit;
+top: -2px;
+}
+.section2_diamonds span:before{
+	left: 0;
+}
+.section2_diamonds span:after{
+	right: 0;
+}
+
+
+/*SECTION3*/
+.section3{
+	background: var(--faded-border);
+}
+.section3 h2{
+	width: 120%;
+	background: linear-gradient(90deg,transparent,var(--text1),transparent) ;
+	background-clip: text;
+	-webkit-text-fill-color:transparent;
+	font-size:clamp(1.5rem, 15vw, 16rem);
+}
