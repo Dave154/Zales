@@ -74,10 +74,10 @@ const swiper2=new Swiper('.swiper2',{
 	loop:'true',
 	effect:'coverflow',
 	grabCursor:true,
-	slidesPerView:`${innerWidth > 800 ? 5: 'auto'}`,
+	slidesPerView:`${innerWidth > 800 ? 5: 5}`,
       coverflowEffect:{
       	rotate:25,
-      	 depth:70,
+      	 depth:150,
       	 modifier:1,
       	slideShadows:'false',
       },
