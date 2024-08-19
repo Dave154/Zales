@@ -98,7 +98,7 @@ const swiper2=new Swiper('.swiper2',{
 	loop:'true',
 	effect:'coverflow',
 	grabCursor:true,
-	slidesPerView:`${innerWidth > 450 ? 5: 1}`,
+	slidesPerView:`${innerWidth > 500 ? 5: 1}`,
       coverflowEffect:{
       	rotate:20,
       	 depth:150,
@@ -152,6 +152,10 @@ const swiper5 = new Swiper('.swiper5',{
 
 
 	/*GSAP*/
+
+document.addEventListener('DomContentLoaded',(e)=>{
+	console.log(e.target)
+})
 
 gsap.registerPlugin(ScrollTrigger);
 const tl1=gsap.timeline()
@@ -220,8 +224,9 @@ title.map(t=>{
 gsap.from('.hand_img',{
 	scrollTrigger:{
 		trigger:'.hand_img',
-		scrub:true,
-		
+		scrub:true,		
 	},
-	rotationY:'-75',
+	yPercent:100,
+	opacity:0,
+	rotationY:'-95',
 })
