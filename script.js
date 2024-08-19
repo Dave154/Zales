@@ -6,9 +6,33 @@ const s =document.querySelector('.category_swiper-button-next')
 const menuToggleBtn=document.querySelector('.menu_open')
 const menu=document.querySelector('.nav_list')
 const listItems=document.querySelectorAll('.list_items')
-
+const categoryList=document.querySelectorAll('.category_name')
+const categorySwipers=document.querySelectorAll('.category_swiper')
 
 // closeModal
+
+
+// CATEGORY
+
+
+
+
+
+categoryList.forEach((category,i)=>{
+category.addEventListener('click',(e)=>{
+  categoryList.forEach(category=>category.classList.remove('active'))
+  category.classList.add('active')
+
+  categorySwipers.forEach((swiper)=>{
+  	swiper.classList.remove('active')
+	  if(swiper.classList.contains(category.id)){
+	  	swiper.classList.add('active')
+	  }
+})
+
+
+})
+})
 
 
 // MENU
@@ -62,7 +86,7 @@ const swiper1=new Swiper('.swiper1',{
 	loop:true,
 	effect:'cards',
 	grabCursor:true,
-   initialSlide:2,  
+   initialSlide:3,  
 	navigation:{
 		nextEl:'.category-swiper-button-next',
 		prevEl:'.category-swiper-button-prev'
@@ -74,9 +98,9 @@ const swiper2=new Swiper('.swiper2',{
 	loop:'true',
 	effect:'coverflow',
 	grabCursor:true,
-	slidesPerView:`${innerWidth > 800 ? 5: 5}`,
+	slidesPerView:`${innerWidth > 450 ? 5: 1}`,
       coverflowEffect:{
-      	rotate:25,
+      	rotate:20,
       	 depth:150,
       	 modifier:1,
       	slideShadows:'false',
@@ -124,4 +148,80 @@ const swiper5 = new Swiper('.swiper5',{
    spaceBetween:5,
 	slidesPerView:'auto',
 	grabCursor:true,
+})
+
+
+	/*GSAP*/
+
+gsap.registerPlugin(ScrollTrigger);
+const tl1=gsap.timeline()
+const tl2=gsap.timeline()
+gsap.from('.hero_buttons_left > button',{
+	x:-100,
+	opacity:.2,
+	duration:1,
+	stagger:.5,
+	ease:'bounce.out'
+
+})
+let p = gsap.utils.toArray('p')
+console.log(p)
+tl2.from(p,{
+    opacity:0,
+    delay:2,
+	duration:1.5,
+})
+
+tl1.from('.bx1_images > .circle',{
+	x:-100,
+	duration:2,
+	rotation:360,
+	ease:'bounce.inOut'
+})
+tl1.from('.bx1_images > .semi_circle',{
+	x:-50,
+	opacity:0,
+	duration:1,
+	ease:'bounce.inOut'
+})
+gsap.from('.section3_container > h2',{
+	scrollTrigger:{
+		trigger:'.section3',
+		start: 'top +=500',
+	},
+	xPercent:-100,
+	duration:1.5,
+	ease:'power4.inOut'
+})
+gsap.from('.category_names_container > article' ,{
+	scrollTrigger:{
+		trigger:'.section3_container',
+		start:'center center',
+	},
+	y:50,
+	opacity:0,
+	duration:1,
+	stagger:.3,
+	ease:'power3.out',
+})
+
+let title = gsap.utils.toArray('.title')
+title.map(t=>{
+	tl2.from(title,{
+	scrollTrigger:{
+		trigger: t ,
+		onEnter:(e)=>e.trigger.classList.add('active')
+
+	},
+})
+
+})
+
+gsap.from('.hand_img',{
+	scrollTrigger:{
+		trigger:'.hand_img',
+		scrub:true,
+		
+	},
+	rotationY:'-75',
 })
