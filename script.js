@@ -9,6 +9,11 @@ const listItems=document.querySelectorAll('.list_items')
 const categoryList=document.querySelectorAll('.category_name')
 const categorySwipers=document.querySelectorAll('.category_swiper')
 
+
+
+document.addEventListener('DOMContentLoaded',()=>{
+	console.log('hi')
+})
 // closeModal
 
 
@@ -81,6 +86,24 @@ List(HeroBtn)
 
 
 // SWIPER
+const swiperA =new Swiper('.swiperA',{
+	grabCursor:true,
+	loop:true,
+	speed:3000,
+	navigation:{
+		prevEl:'.prev',
+		nextEl:'.nxt',
+	},
+	pagination:{
+		el:'.pagination',
+		type:'progressbar',
+		// verticalClass:true
+	},
+	autoplay:{
+		delay:5000,
+	}
+})
+
 
 const swiper1=new Swiper('.swiper1',{
 	loop:true,
@@ -153,9 +176,7 @@ const swiper5 = new Swiper('.swiper5',{
 
 	/*GSAP*/
 
-document.addEventListener('DomContentLoaded',(e)=>{
-	console.log(e.target)
-})
+
 
 gsap.registerPlugin(ScrollTrigger);
 const tl1=gsap.timeline()
@@ -221,12 +242,22 @@ title.map(t=>{
 
 })
 
+gsap.from('.absolute',{
+	scrollTrigger:{
+		trigger:'.absolute',
+	},
+	yPercent:200,
+	opacity:.5,
+	stagger:.3,
+	duration:1,
+	ease:'bounce.out'
+})
+
 gsap.from('.hand_img',{
 	scrollTrigger:{
 		trigger:'.hand_img',
 		scrub:true,		
 	},
-	yPercent:100,
-	opacity:0,
-	rotationY:'-95',
+	// yPercent:100,
+	rotationY:'-90',
 })

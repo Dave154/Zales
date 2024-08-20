@@ -6,8 +6,8 @@
   --dark:#000;
   --image_blur_bg: rgba(16, 12, 10, .7);
   --text1:#fff;
-  --text2:#8C8988;
-  --font-xsm:clamp(.6rem,2vw,1rem);
+  --text2:rgba(200,200,200,1);
+  --font-xsm:clamp(1rem,2vw,1.2rem);
   --font-sm:20px;
   --font-md:25px;
   --font-lg:40px;
@@ -15,7 +15,7 @@
   --border-color:#fff;
   --faded-border:rgba(100,100,100,.5);
   --border-radius:15px;
-  --font1:cursive;
+  --font1:serif;
 }
 *{
 	box-sizing: border-box;
@@ -81,7 +81,7 @@ body{
 }
 /*REUSABLE CLASSES*/
 .container{
- margin: 20px;
+ margin: .5rem;
 
 }
 .section{
@@ -127,12 +127,12 @@ border-radius: 50%;
 }
 .nav{
 	font-size: var(--font-xsm);
+	gap: 10px;
 }
-.nav_left{
 
-}
 .menu_open{
 	display: none;
+	font-size: 1.5rem;
 }
 .nav_list{
 	margin-left: 40px;
@@ -147,7 +147,9 @@ color:rgba(255, 255, 255, .3);
 .list_items.active{
 	color:white;
 }
-
+.nav_button.sm{
+	display:none ;
+}
 .nav_button button{
  padding: 5px 20px;
  font-size: var(--font-xsm);
@@ -170,6 +172,9 @@ border-radius: 50%;
 	text-transform: uppercase;
 }
 /*HERO*/
+.hero{
+	overflow: hidden;
+}
 .hero_container{
 	width: 100%;
 	height: 88vh;
@@ -219,23 +224,33 @@ grid-area: 7/1;
 	justify-content: space-between;
 
 }
+.hero_buttons_right{
+	position: absolute;
+	bottom:10%;
+	z-index: 99;
+	right: 1rem;
+}
 .hero_buttons_right > button{
 	border-color: var(--faded-border);
 	}
 .hero_buttons_right > button.active{
-	width: 50px;
+	width: 60px;
 	height: 30px;
 	border-color: var(--border-color);
 	border-radius: var(--border-radius);
 }
 .pagination{
-	flex-direction: column;
 	position: absolute;
-	right: 	10px;
-	top:30%;
+	left: 95% !important;
+	width: 1rem !important;
+	height: 7rem !important;
+	top:30% !important;
+	z-index: 99;
+	background: var(--secondary)!important;
 	font-size: var(--font-xsm);
+	border-radius: var(--border-radius);
 }
-.pag{
+/*.pag{
 	display: grid;
 	width: 2px;
 	height: 80px;
@@ -244,8 +259,11 @@ grid-area: 7/1;
 }
 .pag span.active{
 background:white;
+}*/
+.swiper-pagination-progressbar-fill{
+	border-radius: inherit;
+	background: var(--primary) !important;
 }
-
 /*SECTION2*/
 
 .section2{
@@ -560,8 +578,7 @@ top: -2px;
 .section4_top p{
 	flex-basis: 30%;
 color: var(--text2);
-/*	width: clamp(100px, 10vw, 200px);*/
-	font-size:clamp(10px, 2vw, 15px);
+/*	font-size:clamp(10px, 2vw, 15px);*/
 }
 .section4_images_container{
 	margin-block: 50px;
@@ -701,7 +718,7 @@ color: var(--text2);
 	margin-bottom: 10px;
 }
 .section5_slide_absolute article{
-	max-width:80% ;
+	max-width:90% ;
 }
 .section5_slide_absolute article .deets{
 	color: var(--text2);
@@ -802,7 +819,8 @@ padding-top: 40px;
 .section6_title2 p{
 	text-transform: uppercase;
 	margin-left: 10px;
-	font-size: clamp(5px, 1vw, var(--font-xsm));
+	letter-spacing: 1px;
+	font-size: clamp(10px, 2vw, var(--font-xsm));
 	flex-basis: 40%;
 }
 .section6_bg_img{
@@ -953,7 +971,7 @@ padding-top: 40px;
 	border: 1px solid var(--faded-border);
 }
 .review_message p{
- font-family: monospace;
+/* font-family: monospace;*/
  margin-bottom: 10px;
 }
 
@@ -1049,6 +1067,8 @@ background: var(--secondary);
 }
 .socials{
 	display: flex;
+	justify-content: center;
+ margin: 0 auto;
 	flex-wrap: wrap;
 	gap: .5rem;
 	}
@@ -1062,6 +1082,11 @@ background: var(--secondary);
 
 @media (max-width:800px){
 
+.nav_left{
+	width: 100%;
+
+}
+
 	.hero_content>article{
 		 place-items: center;
 		  text-align: center;
@@ -1070,24 +1095,14 @@ background: var(--secondary);
 	min-width:0px;
 }
 	.menu_open{
-		cursor: pointer;
 		display: block;
-		animation: menu 1s linear infinite;
+		cursor: pointer;
 	}
-	@keyframes menu {
-		75%{
-          transform: translateY(5px);
-		}
-		100%{
-          transform: translateY(0);
-		}
-	}
-
 	
 	.nav_list{
 		display: flex;
 		position: absolute;
-	z-index: 1;
+	z-index: 90;
 	opacity: 0;
 	transform: translate(-50%,0) scale(0);
 	background: var(--dark);
@@ -1126,12 +1141,25 @@ background: var(--secondary);
 }
 }
  @media (max-width:500px){
+
+/* 		HEADER*/
+.nav_button.sm{
+	display:block ;
+}
+.nav_button.lg{
+	display:none;
+}
 /*HERO*/
  	.section2 .top_boxes{
 	flex-direction: column;
 }
 .bx2_btm{
 	width: 140px;
+}
+.section2_text_case1 article p{
+
+visibility: hidden;
+
 }
 .section4_image .cat{
 	position: absolute;
@@ -1142,10 +1170,14 @@ background: var(--secondary);
 .contact_container{
 	flex-direction: column-reverse;
 }
+.section5_slide_absolute{
+	width: 100%;
+	}
 
  }
 
  @media (max-width:300px) {
+
  	.section6_title2 p{
 	display: none;
 }
